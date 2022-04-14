@@ -3,12 +3,13 @@ version: '3.9'
 services:
   prometheus:
     image: prom/prometheus
-    ports:
-      - 9090:9090
-    networks:
-      - prometheus
+    network_mode: host
+    # ports:
+    #   - 9090:9090
+    # networks:
+    #   - prometheus
     volumes:
-      - ./prometheus:/etc/prometheus/
+      - ./prometheus/prometheus.yaml:/etc/prometheus/prometheus.yml
 
   # mac_exporter:
   #   image: quay.io/prometheus/node-exporter:latest
