@@ -7,22 +7,18 @@ services:
       - 9090:9090
     networks:
       - prometheus
+    volumes:
+      - ./prometheus:/etc/prometheus/
 
-  mongodb:
-    image: mongo:4.2.1
-    networks:
-      - prometheus
-    restart: always
-    environment:
-      MONGO_INIT_ROOT_USERNAME: mongouser
-      MONGO_INIT_ROOT_PASSWORD: 987654321
-
-  # mongo_exporter:
-  #   image: frabricioveronez/mongo_exporter
-  #   networks:
-  #     - prometheus
-  #   depends_on:
-  #     - mongodb
+  # mac_exporter:
+  #   image: quay.io/prometheus/node-exporter:latest
+  #   container_name: mac_exporter
+  #   command:
+  #     - '--path.rootfs=/host'
+  #   network_mode: host
+  #   pid: host
+  #   volumes:
+  #     - '/:/host:ro'
 
 networks:
   prometheus:
