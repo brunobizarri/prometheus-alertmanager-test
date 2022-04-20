@@ -3,23 +3,30 @@ version: '3.9'
 services:
   prometheus:
     image: prom/prometheus
-    network_mode: host
-    # ports:
-    #   - 9090:9090
-    # networks:
-    #   - prometheus
+    ports:
+      - 9090:9090
+    networks:
+      - prometheus
     volumes:
       - ./prometheus/prometheus.yaml:/etc/prometheus/prometheus.yml
 
-  # mac_exporter:
-  #   image: quay.io/prometheus/node-exporter:latest
-  #   container_name: mac_exporter
-  #   command:
-  #     - '--path.rootfs=/host'
-  #   network_mode: host
-  #   pid: host
-  #   volumes:
-  #     - '/:/host:ro'
+  alertmanager:
+    image: prom/alertmanager
+    ports:
+      - 9093:9093
+    networks:
+      - prometheus
+    depends_on:
+      - prometheus
+
+  node-exporter:
+    image: prom/node-exporter
+    ports:
+      - 9100:9100
+    networks:
+      - prometheus
+    depends_on:
+      - prometheus
 
 networks:
   prometheus:
