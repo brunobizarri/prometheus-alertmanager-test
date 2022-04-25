@@ -9,6 +9,9 @@ services:
       - prometheus
     volumes:
       - ./prometheus/prometheus.yaml:/etc/prometheus/prometheus.yml
+      - ./prometheus/alert.prometheus.rules.yaml:/etc/prometheus/alert.prometheus.rules
+      - ./prometheus/alert.node.rules.yaml:/etc/prometheus/alert.node.rules
+#      - /etc/localtime:/etc/localtime:ro
 
   alertmanager:
     image: prom/alertmanager
