@@ -3,5 +3,7 @@ testes de disparos de alertas com o alertmanager e prometheus
 
 </br>
 
-# instalar e executar o node-exporter do MAC
-https://prometheus.io/docs/guides/node-exporter/
+rodar comandos na raiz do projeto:
+
+```docker-compose up -d```
+```curl localhost:9538/discover_queues```

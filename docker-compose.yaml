@@ -22,6 +22,17 @@ services:
     depends_on:
       - prometheus
 
+  bull-exporter:
+    image: uphabit/bull_exporter
+    env_file:
+      - bull_exporter/.env
+    ports:
+      - 9538:9538
+    networks:
+      - prometheus
+    depends_on:
+      - prometheus
+
   node-exporter:
     image: prom/node-exporter
     ports:
