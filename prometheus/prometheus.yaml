@@ -6,6 +6,7 @@ global:
 rule_files:
   - alert.prometheus.rules
   - alert.node.rules
+  - alert.bull.rules
 
 alerting:
   alertmanagers:
@@ -23,3 +24,8 @@ scrape_configs:
   static_configs:
     - targets:
       - node-exporter:9100
+
+- job_name: bull-exporter
+  static_configs:
+    - targets:
+      - bull-exporter:9538
