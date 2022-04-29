@@ -6,7 +6,7 @@ global:
 rule_files:
   - alert.prometheus.rules
   - alert.node.rules
-  - alert.bull.rules
+  - alert.queue.rules
 
 alerting:
   alertmanagers:

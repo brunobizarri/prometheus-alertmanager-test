@@ -1,0 +1,13 @@
+groups:
+- name: QueueAlerts
+  rules:
+
+  - alert: JobWaitMore1Minute
+    expr: bull_queue_waiting{job=~"bull-.*",queue=~".*"} != 0
+    for: 0m
+    labels:
+      scrape: bull-exporter
+      severity: hight
+    annotations:
+      summary: Fila com Job aguardando
+      description: "Fila {{$labels.queue}} no ambiente {{$labels.job}} tem um job aguardando a mais de 1 minuto"
