@@ -33,16 +33,16 @@ services:
     depends_on:
       - prometheus
 
-  nodejs-bull-monitor:
-    image: ejhayes/nodejs-bull-monitor
-    env_file:
-      - nodejs-bull-monitor/.env
-    ports:
-      - 3000:3000
-    networks:
-      - prometheus
-    depends_on:
-      - prometheus
+  # nodejs-bull-monitor:
+  #   image: ejhayes/nodejs-bull-monitor
+  #   env_file:
+  #     - nodejs-bull-monitor/.env
+  #   ports:
+  #     - 3000:3000
+  #   networks:
+  #     - prometheus
+  #   depends_on:
+  #     - prometheus
 
   node-exporter:
     image: prom/node-exporter

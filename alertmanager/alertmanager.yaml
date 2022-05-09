@@ -21,4 +21,5 @@ receivers:
   - url: 'https://pruu.herokuapp.com/dump/brunobizarri-prometheus'
 - name: AlertNode
   webhook_configs:
-  - url: 'https://pruu.herokuapp.com/dump/brunobizarri-node'
+  # - url: 'https://pruu.herokuapp.com/dump/brunobizarri-node'
+  - url: 'https://experian.webhook.office.com/webhookb2/acfea663-d735-4133-ac26-39f12845aad5@be67623c-1932-42a6-9d24-6c359fe5ea71/IncomingWebhook/b4607d7d33a244938d5cb98e3bac2d79/0b13b6e6-40f5-40d8-9773-989ec0e0b070'

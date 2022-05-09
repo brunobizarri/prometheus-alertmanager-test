@@ -29,3 +29,8 @@ scrape_configs:
   static_configs:
     - targets:
       - bull-exporter:9538
+
+- job_name: nodejs-bull-monitor
+  static_configs:
+    - targets:
+      - nodejs-bull-monitor:3000
