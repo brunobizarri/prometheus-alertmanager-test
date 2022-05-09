@@ -21,6 +21,8 @@ services:
       - prometheus
     depends_on:
       - prometheus
+    volumes:
+      - ./alertmanager/alertmanager.yaml:/etc/alertmanager/alertmanager.yml
 
   bull-exporter:
     image: uphabit/bull_exporter
@@ -52,6 +54,13 @@ services:
       - prometheus
     depends_on:
       - prometheus
+
+  mailhog:
+    image: mailhog/mailhog:latest
+    restart: always
+    ports:
+      - 1025:1025
+      - 8025:8025
 
 networks:
   prometheus:

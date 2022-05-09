@@ -14,8 +14,10 @@ route:
 
 receivers:
 - name: Default
-  webhook_configs:
-  - url: 'https://pruu.herokuapp.com/dump/brunobizarridefault'
+  email_configs:
+    - to: to@example.com
+      from: from@example.com
+      smarthost: mailhog:1025
 - name: AlertPrometheus
   webhook_configs:
   - url: 'https://pruu.herokuapp.com/dump/brunobizarri-prometheus'
