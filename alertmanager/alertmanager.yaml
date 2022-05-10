@@ -17,11 +17,14 @@ receivers:
   email_configs:
     - to: to@example.com
       from: from@example.com
-      smarthost: mailhog:1025
-- name: AlertPrometheus
-  webhook_configs:
-  - url: 'https://pruu.herokuapp.com/dump/brunobizarri-prometheus'
-- name: AlertNode
-  webhook_configs:
-  # - url: 'https://pruu.herokuapp.com/dump/brunobizarri-node'
-  - url: 'https://experian.webhook.office.com/webhookb2/acfea663-d735-4133-ac26-39f12845aad5@be67623c-1932-42a6-9d24-6c359fe5ea71/IncomingWebhook/b4607d7d33a244938d5cb98e3bac2d79/0b13b6e6-40f5-40d8-9773-989ec0e0b070'
+      smarthost: smtp.mailtrap.io:2525
+      auth_username: 94d025056bcfde
+      auth_identity: brunobizarri@mailtrap.io
+      auth_password: 8622a64b7f68ad
+# - name: AlertPrometheus
+#   webhook_configs:
+#   - url: 'https://pruu.herokuapp.com/dump/brunobizarri-prometheus'
+# - name: AlertNode
+#   webhook_configs:
+#   # - url: 'https://pruu.herokuapp.com/dump/brunobizarri-node'
+#   - url: 'https://experian.webhook.office.com/webhookb2/acfea663-d735-4133-ac26-39f12845aad5@be67623c-1932-42a6-9d24-6c359fe5ea71/IncomingWebhook/b4607d7d33a244938d5cb98e3bac2d79/0b13b6e6-40f5-40d8-9773-989ec0e0b070'
