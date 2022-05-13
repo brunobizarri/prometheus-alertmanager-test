@@ -63,6 +63,17 @@ services:
   #   networks:
   #     - prometheus
 
+  alert-ms-teams:
+    image: quay.io/prometheusmsteams/prometheus-msteams
+    env_file:
+      - alert-ms-teams/.env
+    ports:
+      - 2000:2000
+    networks:
+      - prometheus
+    depends_on:
+      - alertmanager
+
 networks:
   prometheus:
     driver: bridge

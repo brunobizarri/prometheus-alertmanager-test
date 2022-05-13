@@ -22,12 +22,22 @@ groups:
       summary: Fila com Job aguardando
       description: "Fila {{$labels.queue}} no ambiente {{$labels.job}} tem um job aguardando a mais de 5 minuto"
 
-  - alert: JobFailed
-    expr: bull_queue_failed{job=~"bull-.*",queue=~".*"} > 1
+  - alert: JobFailedDEV
+    expr: bull_queue_failed{job=~"bull-.*",queue=~"DEV_.*"} > 1
     for: 0m
     labels:
       scrape: bull-exporter
       severity: warning
+    annotations:
+      summary: Fila {{$labels.queue}} - Jobs com falha
+      description: "Fila {{$labels.queue}} no ambiente {{$labels.job}} tem um jobs falhando"
+
+  - alert: JobFailedDEV2
+    expr: bull_queue_failed{job=~"bull-.*",queue=~"DEV2_.*"} > 1
+    for: 0m
+    labels:
+      scrape: bull-exporter
+      severity: higth
     annotations:
       summary: Fila {{$labels.queue}} - Jobs com falha
       description: "Fila {{$labels.queue}} no ambiente {{$labels.job}} tem um jobs falhando"
