@@ -22,17 +22,17 @@ route:
       repeat_interval: 15m
       group_by: ['alertname']
       match_re:
-        severity: higth
+        severity: critical
         scrape: bull-exporter
       continue: true
 
 receivers:
 - name: Default
-  email_configs:
+  #email_configs:
   #- url: 'http://alert-ms-teams:2000/alertmanager'
 - name: DEV
   webhook_configs:
-  - url: 'http://alert-ms-teams:2000/alertmanager'
+  - url: 'http://alert-ms-teams:2000/queue-alerts'
 - name: DEV2
   webhook_configs:
-  - url: 'http://alert-ms-teams:2000/alertmanager'
+  - url: 'http://alert-ms-teams:2000/server-alerts'

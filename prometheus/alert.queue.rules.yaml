@@ -37,7 +37,7 @@ groups:
     for: 0m
     labels:
       scrape: bull-exporter
-      severity: higth
+      severity: critical
     annotations:
       summary: Fila {{$labels.queue}} - Jobs com falha
       description: "Fila {{$labels.queue}} no ambiente {{$labels.job}} tem um jobs falhando"

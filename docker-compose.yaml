@@ -73,6 +73,8 @@ services:
       - prometheus
     depends_on:
       - alertmanager
+    volumes:
+      - ./alert-ms-teams/config.yaml:/etc/conf.d/config.yml
 
 networks:
   prometheus:
