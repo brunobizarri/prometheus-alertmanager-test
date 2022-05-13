@@ -1,0 +1,3 @@
+connectors:
+  - webhoo_bbb: "https://outlook.office.com/webhook/xxxx/aaa/bbb"
+  - webhook_ccc: "https://outlook.office.com/webhook/xxxx/aaa/ccc"
