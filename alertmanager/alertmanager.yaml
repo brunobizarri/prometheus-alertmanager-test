@@ -8,31 +8,31 @@ route:
   group_by: ['alertname']
 
   routes:
-    - receiver: 'DEV'
+    - receiver: 'QUEUE'
       group_interval: 2m
       repeat_interval: 10m
-      group_by: ['alertname']
-      match_re:
-        severity: warning
-        scrape: bull-exporter
-      continue: true
-
-    - receiver: 'DEV2'
-      group_interval: 5m
-      repeat_interval: 15m
       group_by: ['alertname']
       match_re:
         severity: critical
         scrape: bull-exporter
       continue: true
 
+    - receiver: 'SERVERS'
+      group_interval: 5m
+      repeat_interval: 15m
+      group_by: ['alertname']
+      match_re:
+        severity: critical
+        scrape: node-exporter
+      continue: true
+
 receivers:
 - name: Default
   #email_configs:
   #- url: 'http://alert-ms-teams:2000/alertmanager'
-- name: DEV
+- name: QUEUE
   webhook_configs:
   - url: 'http://alert-ms-teams:2000/queue-alerts'
-- name: DEV2
+- name: SERVERS
   webhook_configs:
   - url: 'http://alert-ms-teams:2000/server-alerts'

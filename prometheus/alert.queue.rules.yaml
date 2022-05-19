@@ -7,7 +7,7 @@ groups:
     for: 0m
     labels:
       scrape: bull-exporter
-      severity: warning
+      severity: critical
     annotations:
       summary: Fila com Job aguardando
       description: "Fila {{$labels.queue}} no ambiente {{$labels.job}} tem um job aguardando a mais de 1 minuto"
@@ -17,7 +17,7 @@ groups:
     for: 5m
     labels:
       scrape: bull-exporter
-      severity: hight
+      severity: critical
     annotations:
       summary: Fila com Job aguardando
       description: "Fila {{$labels.queue}} no ambiente {{$labels.job}} tem um job aguardando a mais de 5 minuto"
@@ -27,7 +27,7 @@ groups:
     for: 0m
     labels:
       scrape: bull-exporter
-      severity: warning
+      severity: critical
     annotations:
       summary: Fila {{$labels.queue}} - Jobs com falha
       description: "Fila {{$labels.queue}} no ambiente {{$labels.job}} tem um jobs falhando"
@@ -47,7 +47,7 @@ groups:
     for: 1m
     labels:
       scrape: bull-exporter
-      severity: hight
+      severity: critical
     annotations:
       summary: Fila {{$labels.queue}} - Jobs com falha
       description: "Fila {{$labels.queue}} no ambiente {{$labels.job}} tem um jobs falhando"
