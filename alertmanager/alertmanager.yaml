@@ -9,7 +9,7 @@ route:
 
   routes:
     - receiver: 'QUEUE'
-      group_interval: 2m
+      group_interval: 5m
       repeat_interval: 10m
       group_by: ['alertname']
       match_re:
@@ -18,12 +18,18 @@ route:
       continue: true
 
     - receiver: 'SERVERS'
-      group_interval: 5m
-      repeat_interval: 15m
       group_by: ['alertname']
       match_re:
         severity: critical
         scrape: node-exporter
+      continue: true
+    
+    - receiver: 'PROMETHEUS'
+      group_interval: 30s
+      repeat_interval: 1m
+      group_by: ['alertname']
+      match_re:
+        scrape: prometheus
       continue: true
 
 receivers:
@@ -36,3 +42,6 @@ receivers:
 - name: SERVERS
   webhook_configs:
   - url: 'http://alert-ms-teams:2000/server-alerts'
+- name: PROMETHEUS
+  webhook_configs:
+  - url: 'http://alert-ms-teams:2000/prometheus-alerts'
